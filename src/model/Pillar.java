@@ -4,12 +4,17 @@ public class Pillar {
 
     private String name;
     private Project[] projects;
+    private int projectCount;
 
     public Pillar(String name) {
         this.name = name;
         projects = new Project[50];
+        projectCount = 0; 
     }
-
+    public String getName() {
+        return name;
+     
+    }
     /**
      * Descripcion: Añade un nuevo Project al arreglo projects
      * pre: El arreglo projects debe estar inicializado
@@ -21,7 +26,10 @@ public class Pillar {
      *         contrario
      */
     public boolean registerProject(Project newProject) {
-
+        if (projectCount < projects.length) {
+            projects[projectCount++] = newProject; 
+            return true;
+        }
         return false;
     }
 
